@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="notred">Next Round of Fixtures</h1>
+
+<div class="container">
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Get EPL Fixtures">
+    </form>
+    
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Get La Liga Fixtures">
+    </form>
+    
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Get Bundesliga Fixtures">
+    </form>
+    
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Get Serie A Fixtures">
+    </form>
+
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Get French Division 1 Fixtures">
+    </form>
+
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Get MLS Fixtures">
+    </form>
+
+</div>
+
+<table class="table table-striped">
+
+    
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Venue</th>
+        <th scope="col">City</th>
+        <th scope="col">Home Team</th>
+        <th scope="col">Away Team</th>     
+      </tr>
+     
+    </thead>
+    <tbody>
+        {% for stuff in data %}     
+      <tr>
+        <th scope="col">{{stuff['fixture']['date']}}</th>
+        <th scope="col">{{stuff['fixture']['venue']['name']}}</th>
+        <th scope="col">{{stuff['fixture']['venue']['city']}}</th>
+        <th scope="col">{{stuff['teams']['home']['name']}}</th>
+        <th scope="col">{{stuff['teams']['away']['name']}}</th>
+        
+
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+
+
+{% endblock content %}

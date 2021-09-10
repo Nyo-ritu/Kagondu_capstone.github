@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="notred">Top Scorers across all major leagues </h1>
+
+<div class="container">
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="EPL Top Scorers">
+    </form>
+    
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="La Liga Top Scorers">
+    </form>
+    
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Bundesliga Top Scorers">
+    </form>
+    
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Serie A Top Scorers">
+    </form>
+
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="French Division 1 Top Scorers">
+    </form>
+
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="MLS Top Scorers">
+    </form>
+
+</div>
+
+<table class="table table-striped">
+
+    
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Team</th>
+        <th scope="col">Appearances</th>
+        <th scope="col">Minutes Played</th>
+        <th scope="col">Position</th>
+        <th scope="col">Total Shots</th>
+        <th scope="col">Shots on Target</th>
+        <th scope="col">Goals</th>
+          
+      </tr>
+     
+    </thead>
+    <tbody>
+        {% for score in data %}     
+      <tr>
+        <th scope="col">{{score['player']['name']}}</th>
+        <th scope="col">{{score['player']['age']}}</th>
+        <th scope="col">{{score['statistics'][0]['team']['name']}}</th>
+        <th scope="col">{{score['statistics'][0]['games']['appearences']}}</th>
+        <th scope="col">{{score['statistics'][0]['games']['minutes']}}</th>
+        <th scope="col">{{score['statistics'][0]['games']['position']}}</th>
+        <th scope="col">{{score['statistics'][0]['shots']['total']}}</th>
+        <th scope="col">{{score['statistics'][0]['shots']['on']}}</th>
+        <th scope="col">{{score['statistics'][0]['goals']['total']}}</th>
+        
+        
+
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+
+
+{% endblock content %}

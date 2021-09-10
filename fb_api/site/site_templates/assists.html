@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1 class="notred">Best Playmakers across all Major Leagues </h1>
+
+<div class="container">
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="EPL Playmakers">
+    </form>
+    
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="La Liga Playmakers">
+    </form>
+    
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Bundesliga Playmakers">
+    </form>
+    
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Serie A Playmakers">
+    </form>
+
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="French Division 1 Playmakers">
+    </form>
+
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="MLS Playmakers">
+    </form>
+
+</div>
+
+<table class="table table-striped">
+
+    
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Team</th>
+        <th scope="col">Position</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Dribbles</th>
+        <th scope="col">Passes Made</th>
+        <th scope="col">Key Passes</th>
+        <th scope="col">Goals</th>
+        <th scope="col">Assists</th>
+          
+      </tr>
+     
+    </thead>
+
+    <tbody>
+        {% for assist in data %}     
+      <tr>
+        <th scope="col">{{assist['player']['name']}}</th>
+        <th scope="col">{{assist['player']['age']}}</th>
+        <th scope="col">{{assist['statistics'][0]['team']['name']}}</th>
+        <th scope="col">{{assist['statistics'][0]['games']['position']}}</th>
+        <th scope="col">{{assist['statistics'][0]['games']['rating']}}</th>
+        <th scope="col">{{assist['statistics'][0]['dribbles']['success']}}</th>
+        <th scope="col">{{assist['statistics'][0]['passes']['total']}}</th>
+        <th scope="col">{{assist['statistics'][0]['passes']['key']}}</th>
+        <th scope="col">{{assist['statistics'][0]['goals']['total']}}</th>
+        <th scope="col">{{assist['statistics'][0]['goals']['assists']}}</th>
+        
+        
+
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+
+{% endblock content %}

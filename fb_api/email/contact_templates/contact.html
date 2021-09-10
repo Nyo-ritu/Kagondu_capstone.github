@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2 class="notred">Contact Us</h2>
+
+{% with messages = get_flashed_messages(with_categories = true) %}
+  {% if messages %}
+      {% for cat, msg in messages %}
+          {% if cat == 'create-success' %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ msg }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>    
+          {% elif cat == 'auth-fail' %}       
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              {{ msg }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endif %}
+      {% endfor %}
+  {% endif %}
+{% endwith %}
+
+
+
+
+  <div class="row">
+    <div class="col-md-5 offset-3">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group" id="check">
+                <fieldset>
+                    {{ form.name.label }}
+                    {{ form.name(class = "form-control", placeholder = "Enter name") }}
+        
+                </fieldset>
+                <fieldset>
+                    {{ form.email.label }}
+                    {{ form.email(class = "form-control", placeholder = "Enter email address") }}
+        
+                </fieldset>
+                <fieldset>
+                    {{ form.message.label }}
+                    {{ form.message(class = "form-control", placeholder = "Please type your feedback") }}
+        
+                </fieldset>
+                {{ form.submit_button(class="btn btn-dark") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

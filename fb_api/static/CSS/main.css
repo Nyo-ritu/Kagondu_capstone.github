@@ -1,0 +1,130 @@
+.logo-wrapper img{
+    max-height: 100px;
+    max-width: 100%;
+    
+}
+
+.logo-wrapper {
+    margin-top: 5%;
+    height: 150px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-left: 10%;
+    border: none;
+    
+}
+.list-group{
+    width: fit-content;
+    margin-left: 30%;
+}
+
+.form-group {
+    width: 70%;
+}
+
+.notwhite{
+    color: black;
+
+}
+#prof {
+    margin-top: 5%;
+    text-align: center;
+    
+}
+
+.hello {
+    color: rgb(100, 4, 4);
+    font-size: xx-large;
+    font-family: cursive;
+    font-style: italic;
+    font-weight: bold;
+    list-style-type: none;
+
+}
+h4 {
+    color: white;
+}
+
+.mb4 {
+    width: fit-content;
+}
+
+body {
+    background-image: url("../images/stadium.jpg");
+    width: 100vw;
+height: 100vh; 
+background-size: 100% 100%;
+background-repeat: no-repeat;
+position: relative;
+
+background-attachment: fixed;
+    
+} 
+
+.notred {
+    color: rgb(12, 8, 3);
+    text-align: center;
+    font-family: cursive;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+h3 {
+    font-family: cursive;
+}
+h2 {
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-top: 5px;
+}
+.table-striped>tbody>tr:nth-of-type(even) {
+    background-color: #fff;
+    text-align: center;
+}
+
+.table-striped {
+    width: 80%;
+    margin-left: 9%;
+    
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: gray;
+    text-align: center;
+}
+
+thead {
+    background-color: rgb(217, 230, 172);
+    text-align: center;
+
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #a75715;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    float: left;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    justify-content: center;
+    margin-left: 20px;
+    
+  }
+  
+#check {
+    margin-left: 20%;
+
+}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="notred">Last Round of Results</h1>
+
+<div class="container">
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Get EPL Results">
+    </form>
+    
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Get La Liga Results">
+    </form>
+    
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Get Bundesliga Results">
+    </form>
+    
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Get Serie A Results">
+    </form>
+
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Get French Division 1 Results">
+    </form>
+
+    <form method="POST" action="">
+        <input type="submit" name="submit_button" value="Get MLS Results">
+    </form>
+
+</div>
+
+<table class="table table-striped">
+
+    
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Venue</th>
+        <th scope="col">City</th>
+        <th scope="col">Home Team</th>
+        <th scope="col", colspan="2">Final Score</th>
+        <th scope="col">Away Team</th>
+          
+      </tr>
+     
+    </thead>
+    <tbody>
+        {% for result in data %}     
+      <tr>
+        <th scope="col">{{result['fixture']['date']}}</th>
+        <th scope="col">{{result['fixture']['venue']['name']}}</th>
+        <th scope="col">{{result['fixture']['venue']['city']}}</th>
+        <th scope="col">{{result['teams']['home']['name']}}</th>
+        <th scope="col">{{result['goals']['home']}}</th>
+        <th scope="col">{{result['goals']['away']}}</th>
+        <th scope="col">{{result['teams']['away']['name']}}</th>
+        
+
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+
+{% endblock content %}

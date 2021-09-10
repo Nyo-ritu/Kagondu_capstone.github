@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+{% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+        {% for cat, msg in messages %}
+            {% if cat == 'auth-success' %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ msg }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>    
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<h2 class="notred">Get the Stats on all your favorite Soccer leagues!</h2>
+{% if not current_user.is_authenticated %}
+<h3 class="notred"> Click on a link above for some Quick Stats, or Sign Up / Sign In for More! </h3>
+{% endif %}
+<div class="container">
+    <div class="row">
+        <div class="logo-wrapper col-12 col-sm-3 col-md-3">
+            <h3>EPL</h3>
+            <img src="../../static/images/Premier-League-logo.png" alt="epl logo">
+        </div>
+        <div class="logo-wrapper col-12 col-sm-3 col-md-3">
+            <h3>Bundesliga</h3>
+            <img src="../../static/images/bundesliga-logo.jpg" alt="epl logo">
+        </div>
+        <div class="logo-wrapper col-12 col-sm-3 col-md-3">
+            <h3>MLS</h3>
+            <img src="../../static/images/mls.svg.png" alt="epl logo">
+        </div>
+    </div>
+    <div class="row">
+        <div class="logo-wrapper col-12 col-sm-3 col-md-3">
+            <h3>La Liga</h3>
+            <img src="../../static/images/la-liga.jpg" alt="epl logo">
+        </div>
+        <div class="logo-wrapper col-12 col-sm-3 col-md-3">
+            <h3>Ligue 1</h3>
+            <img src="../../static/images/ligue_1.jpg" alt="epl logo">
+        </div>
+        <div class="logo-wrapper col-12 col-sm-3 col-md-3">
+            <h3>Serie A</h3>
+            <img src="../../static/images/Italian-Serie-A-Logo.png" alt="epl logo">
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}
