@@ -13,7 +13,7 @@ site = Blueprint('site', __name__, template_folder='site_templates')
 
 headers = {
     'x-rapidapi-host': "v3.football.api-sports.io",
-    'x-rapidapi-key': "4217455a230000539dc771fa60ba6963"
+    'x-rapidapi-key': 
     }
 
 
