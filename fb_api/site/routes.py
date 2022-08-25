@@ -7,35 +7,44 @@ from flask import request
 from flask.json import jsonify
 import json
 import pandas as pd
+from dotenv import load_dotenv
+import os
+from datetime import datetime
+
+def configure():
+    load_dotenv()
+
+
 
 site = Blueprint('site', __name__, template_folder='site_templates')
 
 
 headers = {
     'x-rapidapi-host': "v3.football.api-sports.io",
-    'x-rapidapi-key': "4217455a230000539dc771fa60ba6963"
+    'x-rapidapi-key':os.getenv('api_key')
     }
 
 
 @site.route('/fixtures', methods=['GET','POST'])
 def fixtures():
+    configure()
     if request.method == 'POST':
         if request.form['submit_button'] == 'Get EPL Fixtures':
             
-            url = "https://v3.football.api-sports.io/fixtures?next=10&league=39&season=2021"
+            url = "https://v3.football.api-sports.io/fixtures?next=10&league=39&season=2022"
 
             payload={}
 
 
             response = requests.request("GET", url, headers=headers, data=payload)
-            
+
             data = response.json()['response']
             
             return render_template("fixtures.html", data=data)
 
         if request.form['submit_button'] == 'Get La Liga Fixtures':
             
-            url = "https://v3.football.api-sports.io/fixtures?next=10&league=140&season=2021"
+            url = "https://v3.football.api-sports.io/fixtures?next=10&league=140&season=2022"
 
             payload={}
 
@@ -48,7 +57,7 @@ def fixtures():
 
         if request.form['submit_button'] == 'Get Bundesliga Fixtures':
             
-            url = "https://v3.football.api-sports.io/fixtures?next=10&league=78&season=2021"
+            url = "https://v3.football.api-sports.io/fixtures?next=10&league=78&season=2022"
 
             payload={}
 
@@ -61,7 +70,7 @@ def fixtures():
 
         if request.form['submit_button'] == 'Get Serie A Fixtures':
             
-            url = "https://v3.football.api-sports.io/fixtures?next=10&league=135&season=2021"
+            url = "https://v3.football.api-sports.io/fixtures?next=10&league=135&season=2022"
 
             payload={}
 
@@ -75,7 +84,7 @@ def fixtures():
 
         if request.form['submit_button'] == 'Get French Division 1 Fixtures':
             
-            url = "https://v3.football.api-sports.io/fixtures?next=10&league=61&season=2021"
+            url = "https://v3.football.api-sports.io/fixtures?next=10&league=61&season=2022"
 
             payload={}
 
@@ -88,7 +97,7 @@ def fixtures():
 
         if request.form['submit_button'] == 'Get MLS Fixtures':
             
-            url = "https://v3.football.api-sports.io/fixtures?next=10&league=253&season=2021"
+            url = "https://v3.football.api-sports.io/fixtures?next=10&league=253&season=2022"
 
             payload={}
 
@@ -103,10 +112,11 @@ def fixtures():
 
 @site.route('/standings', methods=['GET','POST'])
 def standings():
+    configure()
     if request.method == 'POST':
         if request.form['submit_button'] == 'Get EPL Standings':
          
-            url = "https://v3.football.api-sports.io/standings?league=39&season=2021"
+            url = "https://v3.football.api-sports.io/standings?league=39&season=2022"
 
             payload={}
 
@@ -118,7 +128,7 @@ def standings():
     
         if request.form['submit_button'] == 'Get La Liga Standings':
          
-            url = "https://v3.football.api-sports.io/standings?league=140&season=2021"
+            url = "https://v3.football.api-sports.io/standings?league=140&season=2022"
 
             payload={}
 
@@ -130,7 +140,7 @@ def standings():
 
         if request.form['submit_button'] == 'Get Bundesliga Standings':
          
-            url = "https://v3.football.api-sports.io/standings?league=78&season=2021"
+            url = "https://v3.football.api-sports.io/standings?league=78&season=2022"
 
             payload={}
 
@@ -141,7 +151,7 @@ def standings():
 
         if request.form['submit_button'] == 'Get MLS Standings':
          
-            url = "https://v3.football.api-sports.io/standings?league=253&season=2021"
+            url = "https://v3.football.api-sports.io/standings?league=253&season=2022"
 
             payload={}
 
@@ -152,7 +162,7 @@ def standings():
 
         if request.form['submit_button'] == 'Get Serie A Standings':
          
-            url = "https://v3.football.api-sports.io/standings?league=135&season=2021"
+            url = "https://v3.football.api-sports.io/standings?league=135&season=2022"
 
             payload={}
 
@@ -163,7 +173,7 @@ def standings():
 
         if request.form['submit_button'] == 'Get French Division 1 Standings':
          
-            url = "https://v3.football.api-sports.io/standings?league=61&season=2021"
+            url = "https://v3.football.api-sports.io/standings?league=61&season=2022"
 
             payload={}
 
@@ -181,10 +191,11 @@ def home():
 
 @site.route('/scorers', methods=['GET','POST'])
 def scorers():
+    configure()
     if request.method == 'POST':
         if request.form['submit_button'] == 'EPL Top Scorers':
             
-            url = "https://v3.football.api-sports.io/players/topscorers?league=39&season=2021"
+            url = "https://v3.football.api-sports.io/players/topscorers?league=39&season=2022"
 
             payload={}
 
@@ -197,7 +208,7 @@ def scorers():
 
         if request.form['submit_button'] == 'La Liga Top Scorers':
             
-            url = "https://v3.football.api-sports.io/players/topscorers?league=140&season=2021"
+            url = "https://v3.football.api-sports.io/players/topscorers?league=140&season=2022"
 
             payload={}
 
@@ -210,7 +221,7 @@ def scorers():
 
         if request.form['submit_button'] == 'Bundesliga Top Scorers':
             
-            url = "https://v3.football.api-sports.io/players/topscorers?league=78&season=2021"
+            url = "https://v3.football.api-sports.io/players/topscorers?league=78&season=2022"
 
             payload={}
 
@@ -223,7 +234,7 @@ def scorers():
 
         if request.form['submit_button'] == 'Serie A Top Scorers':
             
-            url = "https://v3.football.api-sports.io/players/topscorers?league=135&season=2021"
+            url = "https://v3.football.api-sports.io/players/topscorers?league=135&season=2022"
 
             payload={}
 
@@ -236,7 +247,7 @@ def scorers():
 
         if request.form['submit_button'] == 'French Division 1 Top Scorers':
             
-            url = "https://v3.football.api-sports.io/players/topscorers?league=61&season=2021"
+            url = "https://v3.football.api-sports.io/players/topscorers?league=61&season=2022"
 
             payload={}
 
@@ -249,7 +260,7 @@ def scorers():
 
         if request.form['submit_button'] == 'MLS Top Scorers':
             
-            url = "https://v3.football.api-sports.io/players/topscorers?league=253&season=2021"
+            url = "https://v3.football.api-sports.io/players/topscorers?league=253&season=2022"
 
             payload={}
 
@@ -267,10 +278,11 @@ def profile():
 
 @site.route('/assists', methods=['GET','POST'])
 def assists():
+    configure()
     if request.method == 'POST':
         if request.form['submit_button'] == 'EPL Playmakers':
             
-            url = "https://v3.football.api-sports.io/players/topassists?season=2021&league=39"
+            url = "https://v3.football.api-sports.io/players/topassists?season=2022&league=39"
 
             payload={}
 
@@ -283,7 +295,7 @@ def assists():
 
         if request.form['submit_button'] == 'La Liga Playmakers':
             
-            url = "https://v3.football.api-sports.io/players/topassists?season=2021&league=140"
+            url = "https://v3.football.api-sports.io/players/topassists?season=2022&league=140"
 
             payload={}
 
@@ -296,7 +308,7 @@ def assists():
 
         if request.form['submit_button'] == 'Bundesliga Playmakers':
             
-            url = "https://v3.football.api-sports.io/players/topassists?season=2021&league=78"
+            url = "https://v3.football.api-sports.io/players/topassists?season=2022&league=78"
 
             payload={}
 
@@ -309,7 +321,7 @@ def assists():
 
         if request.form['submit_button'] == 'Serie A Playmakers':
             
-            url = "https://v3.football.api-sports.io/players/topassists?season=2021&league=135"
+            url = "https://v3.football.api-sports.io/players/topassists?season=2022&league=135"
 
             payload={}
 
@@ -322,7 +334,7 @@ def assists():
 
         if request.form['submit_button'] == 'French Division 1 Playmakers':
             
-            url = "https://v3.football.api-sports.io/players/topassists?season=2021&league=61"
+            url = "https://v3.football.api-sports.io/players/topassists?season=2022&league=61"
 
             payload={}
 
@@ -335,7 +347,7 @@ def assists():
 
         if request.form['submit_button'] == 'MLS Playmakers':
             
-            url = "https://v3.football.api-sports.io/players/topassists?season=2021&league=253"
+            url = "https://v3.football.api-sports.io/players/topassists?season=2022&league=253"
 
             payload={}
 
@@ -349,10 +361,11 @@ def assists():
 
 @site.route('/results', methods=['GET','POST'])
 def results():
+    configure()
     if request.method == 'POST':
         if request.form['submit_button'] == 'Get EPL Results':
             
-            url = "https://v3.football.api-sports.io/fixtures?last=10&league=39&season=2021"
+            url = "https://v3.football.api-sports.io/fixtures?last=10&league=39&season=2022"
 
             payload={}
 
@@ -365,7 +378,7 @@ def results():
 
         if request.form['submit_button'] == 'Get La Liga Results':
             
-            url = "https://v3.football.api-sports.io/fixtures?last=10&league=140&season=2021"
+            url = "https://v3.football.api-sports.io/fixtures?last=10&league=140&season=2022"
 
             payload={}
 
@@ -378,7 +391,7 @@ def results():
 
         if request.form['submit_button'] == 'Get Bundesliga Results':
             
-            url = "https://v3.football.api-sports.io/fixtures?last=10&league=78&season=2021"
+            url = "https://v3.football.api-sports.io/fixtures?last=10&league=78&season=2022"
 
             payload={}
 
@@ -391,7 +404,7 @@ def results():
 
         if request.form['submit_button'] == 'Get Serie A Results':
             
-            url = "https://v3.football.api-sports.io/fixtures?last=10&league=135&season=2021"
+            url = "https://v3.football.api-sports.io/fixtures?last=10&league=135&season=2022"
 
             payload={}
 
@@ -405,7 +418,7 @@ def results():
 
         if request.form['submit_button'] == 'Get French Division 1 Results':
             
-            url = "https://v3.football.api-sports.io/fixtures?last=10&league=61&season=2021"
+            url = "https://v3.football.api-sports.io/fixtures?last=10&league=61&season=2022"
 
             payload={}
 
@@ -418,7 +431,7 @@ def results():
 
         if request.form['submit_button'] == 'Get MLS Results':
             
-            url = "https://v3.football.api-sports.io/fixtures?last=10&league=253&season=2021"
+            url = "https://v3.football.api-sports.io/fixtures?last=10&league=253&season=2022"
 
             payload={}
 

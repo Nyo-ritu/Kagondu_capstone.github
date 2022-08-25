@@ -6,6 +6,7 @@ from .email.routes import cont
 from .models import db, User, login_manager
 from flask_migrate import Migrate 
 
+
 app = Flask(__name__)
 
 app.config.from_object(Config)
