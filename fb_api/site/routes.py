@@ -40,7 +40,10 @@ def fixtures():
 
             data = response.json()['response']
             
-            return render_template("fixtures.html", data=data)
+            date_obj = data['fixtures']['date']
+            new_date = datetime.strptime(date_obj, '%Y-%m-%dT%H:%M:%S').strftime('%Y-%m-%d')
+
+            return render_template("fixtures.html", data=data, new_date=new_date)
 
         if request.form['submit_button'] == 'Get La Liga Fixtures':
             
