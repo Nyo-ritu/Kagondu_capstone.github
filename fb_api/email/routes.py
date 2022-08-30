@@ -13,16 +13,14 @@ app = Flask(__name__)
 
 cont = Blueprint('cont', __name__, template_folder='contact_templates')
 
-Email_Addr = os.getenv('Email_Addr')
-Email_Pass = os.getenv('Email_Pass')
 
 mail_settings = {
     "MAIL_SERVER": 'smtp.gmail.com',
     "MAIL_PORT": 465,
     "MAIL_USE_TLS": False,
     "MAIL_USE_SSL": True,
-    "MAIL_USERNAME": os.environ['Email_Addr'],
-    "MAIL_PASSWORD": os.environ['Email_Pass']
+    "MAIL_USERNAME": os.getenv('Email_Addr'),
+    "MAIL_PASSWORD": os.getenv('Email_Pass')
 }
 
 app.config.update(mail_settings)
