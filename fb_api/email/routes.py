@@ -4,7 +4,6 @@ from flask.helpers import url_for
 from flask_mail import Mail, Message
 from flask_mail import Mail, Message
 import os
-
 from dotenv import load_dotenv
 
 load_dotenv()
