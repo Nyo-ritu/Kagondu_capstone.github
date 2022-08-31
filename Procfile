@@ -1,0 +1,1 @@
+web: gunicorn fb_api:app --preload --timeout 60
