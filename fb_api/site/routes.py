@@ -6,7 +6,7 @@ from flask import Response
 from flask import request
 from flask.json import jsonify
 import json
-import pandas as pd
+
 from dotenv import load_dotenv
 import os
 from datetime import datetime
